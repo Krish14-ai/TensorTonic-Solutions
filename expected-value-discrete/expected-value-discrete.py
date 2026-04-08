@@ -5,13 +5,14 @@ def expected_value_discrete(x, p):
     Returns: float expected value
     """
     # Write code here
-    x = np.array(x)
-    p = np.array(p)
-    
+    X = np.array(x)
+    P = np.array(p)
     if len(x) != len(p):
         raise ValueError("x and p must have the same length")
-    
-    if not np.isclose(np.sum(p), 1):
-        raise ValueError("Probabilities must sum to 1")
-    
-    return np.sum(x * p)
+    if not np.isclose(np.sum(p),1):
+        raise ValueError("Value Error,Sum of probabilities should be 1")
+    y=0.0
+    for i in range(len(x)):
+        y = y+x[i]*p[i]
+
+    return y
